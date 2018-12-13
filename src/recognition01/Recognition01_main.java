@@ -12,25 +12,7 @@ public class Recognition01_main
 
 	public static void main(String[] args) 
 	{
-		VisualRecognition service = new VisualRecognition("2018-03-19");
-		IamOptions iamOptions = new IamOptions.Builder()
-		  .apiKey("===")
-		  .build();
-		service.setIamCredentials(iamOptions);
-		
-		
-		DetectFacesOptions detectFacesOptions = null;
-		try {
-			detectFacesOptions = new DetectFacesOptions.Builder()
-					  .imagesFile(new File("img/IMG_2799.JPG"))
-					  .build();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-DetectedFaces result = service.detectFaces(detectFacesOptions).execute();
-			System.out.println(result);
-
+		Recognition01_lib rlib = new Recognition01_lib();
+		rlib.getResult("img/IMG_2799.JPG");
 	}
 }
